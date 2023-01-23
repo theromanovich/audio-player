@@ -9,7 +9,26 @@
     <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
-  
+    <div class="player-container">
+        <div class="img-container">
+            <img src="img/dmc.jpeg" alt="art">
+        </div>
+        <h2 id="title">Мой героин</h2>
+        <h3 id="artist">ДМЦ</h3>
+        <audio src="music/dmc.mp3"></audio>
+        <div class="progress-container" id="progress-container">
+            <div class="progress" id="progress"></div>
+            <div class="duration-wrapper">
+                <span id="current-time">0:00</span>
+                <span id="duration">4:08</span>
+            </div>
+        </div>
+        <div class="player-controls">
+            <i class="fas fa-backward" id="prev" title="Previous"></i>
+            <i class="fas fa-play main-button" id="play" title="Play"></i>
+            <i class="fas fa-forward" id="next" title="Next"></i>
+        </div>
+    </div>
     <script src="js/script.js"></script>
 </body>
 </html>
