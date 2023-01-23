@@ -5,6 +5,7 @@ const cleanCSS = require('gulp-clean-css');
 const autoprefixer = require('gulp-autoprefixer');
 const rename = require("gulp-rename");
 const htmlmin = require('gulp-htmlmin');
+const minify = require('gulp-minify');
 
 gulp.task('server', function() {
 
@@ -41,7 +42,7 @@ gulp.task('html', function() {
 
 gulp.task('scripts', function() {
     return gulp.src("src/js/*.js")
-    .pipe(gulp.dest('src/js'))
+    .pipe(minify())
     .pipe(gulp.dest('dist/js'));
 })
 
