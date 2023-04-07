@@ -83,21 +83,29 @@ function nextSong(): void {
 
 loadSong(songs[songIndex]);
 
-function updateProgressBar(e: any): void {
+function updateProgressBar(e: Event): void {
   if (isPlaying) {
-    const { duration, currentTime } = e.srcElement;
-    const progressPercent = (currentTime / duration) * 100;
+    const { duration, currentTime }: { duration: number; currentTime: number } =
+      e.target as HTMLMediaElement;
+
+    const progressPercent: number = (currentTime / duration) * 100;
     progress.style.width = `${progressPercent}%`;
-    const durationMinutes = Math.floor(duration / 60);
+
+    const durationMinutes: number = Math.floor(duration / 60);
+
     let durationSeconds: number | string = Math.floor(duration % 60);
+
     if (durationSeconds < 10) {
       durationSeconds = `0${durationSeconds}`;
     }
     if (durationSeconds) {
       durationEl.textContent = `${durationMinutes}:${durationSeconds}`;
     }
+
     const currentMinutes = Math.floor(currentTime / 60);
+
     let currentSeconds: number | string = Math.floor(currentTime % 60);
+
     if (currentSeconds < 10) {
       currentSeconds = `0${currentSeconds}`;
     }
@@ -106,9 +114,9 @@ function updateProgressBar(e: any): void {
 }
 
 function setProgressBar(e: MouseEvent): void {
-  const width = this.clientWidth;
-  const clickX = e.offsetX;
-  const { duration } = music;
+  const width: number = this.clientWidth;
+  const clickX: number = e.offsetX;
+  const { duration }: { duration: number } = music;
   music.currentTime = (clickX / width) * duration;
 }
 
